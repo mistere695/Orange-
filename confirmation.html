@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirmation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('fond-felicitation.jpg'); /* Remplace par ton image */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      text-shadow: 1px 1px 2px black;
+    }
+    .message {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 80%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="message">
+    <h1 id="messageFinal"></h1>
+    <p>Contactez votre administrateur pour effectuer votre dépôt pour le lancement de votre investissement.</p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const nom = params.get("nom");
+    const prenom = params.get("prenom");
+
+    const message = `Félicitations ${prenom} ${nom} ! Vous avez été enregistré.`;
+    document.getElementById("messageFinal").textContent = message;
+  </script>
+
+</body>
+</html>
