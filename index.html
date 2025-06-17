@@ -10,9 +10,13 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+
     header {
-      background-image: url('entete.jpg'); /* Remplace par le nom de ton image d'en-tête */
+      background-image: url('entete.jpg'); /* Ton image d’en-tête */
       background-size: cover;
       background-position: center;
       height: 200px;
@@ -20,40 +24,61 @@
       align-items: center;
       justify-content: center;
       color: white;
-      text-shadow: 1px 1px 2px black;
+      text-shadow: 2px 2px 4px black;
+      font-size: 28px;
+      font-weight: bold;
     }
+
+    footer {
+      background-color: #001f3f;
+      text-align: center;
+      padding: 15px;
+      color: #ccc;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
     .container {
-      padding: 20px;
+      padding: 30px;
       max-width: 600px;
       margin: auto;
     }
+
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
+
     input, select, button {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      font-size: 16px;
     }
+
     button {
       background-color: #007BFF;
       color: white;
       font-weight: bold;
       margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Formulaire d'inscription</h1>
-  </header>
+  <header>XM Trading</header>
 
   <div class="container">
+    <h2 style="text-align: center; color: #007BFF;">Formulaire d'inscription</h2>
     <form onsubmit="handleSubmit(event)">
       <label>Nom :</label>
       <input type="text" id="nom" required>
@@ -74,7 +99,6 @@
         <option value="TD">Tchad</option>
         <option value="ML">Mali</option>
         <option value="BF">Burkina Faso</option>
-        <!-- Ajoute d'autres pays si tu veux -->
       </select>
 
       <label>Numéro de téléphone :</label>
@@ -93,18 +117,13 @@
     </form>
   </div>
 
+  <footer>© 2025 XM Trading — Tous droits réservés.</footer>
+
   <script>
     const indicatifs = {
-      CM: "+237",
-      CI: "+225",
-      SN: "+221",
-      GA: "+241",
-      CD: "+243",
-      CG: "+242",
-      CF: "+236",
-      TD: "+235",
-      ML: "+223",
-      BF: "+226"
+      CM: "+237", CI: "+225", SN: "+221", GA: "+241",
+      CD: "+243", CG: "+242", CF: "+236", TD: "+235",
+      ML: "+223", BF: "+226"
     };
 
     function updateIndicatif() {
