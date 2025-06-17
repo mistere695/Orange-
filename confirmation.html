@@ -2,44 +2,53 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Confirmation | XM Trading</title>
+  <title>Félicitations - XM Trading</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background-image: url('fond-felicitation.jpeg'); /* Ton image de fond */
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('fond-felicitation.jpeg'); /* remplace par ton image */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00C897;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .container {
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      text-shadow: 2px 2px 4px #000;
-    }
-
-    .message {
-      background-color: rgba(0, 0, 0, 0.75);
-      padding: 50px 40px;
-      border-radius: 14px;
+      padding: 20px;
       text-align: center;
-      max-width: 90%;
-      animation: fadeZoom 1.5s ease-out forwards;
+      animation: fadeZoom 1.5s ease-in-out forwards;
       opacity: 0;
-      transform: scale(0.9);
-    }
-
-    .message h1 {
-      font-size: 2.2em;
-      margin-bottom: 20px;
-    }
-
-    .message p {
-      font-size: 1.3em;
-      line-height: 1.6;
+      transform: scale(0.95);
     }
 
     @keyframes fadeZoom {
@@ -49,37 +58,71 @@
       }
     }
 
+    .container h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .container p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00C897;
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #009B73;
+    }
+
     footer {
-      margin-top: 40px;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.6);
       text-align: center;
-      padding: 20px 10px;
-      font-size: 1em;
-      color: #ddd;
+      padding: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    footer strong {
+      color: #00C897;
     }
   </style>
 </head>
 <body>
 
-  <div class="message">
-    <h1 id="messageFinal"></h1>
+  <header>
+    <h1>XM Trading</h1>
+  </header>
+
+  <div class="container">
+    <h2 id="messageFinal">Félicitations !</h2>
     <p>
-      Contactez votre administrateur pour effectuer votre dépôt<br>
-      pour le lancement de votre investissement.
+      Contactez votre administrateur pour effectuer votre dépôt pour le lancement de votre investissement.
     </p>
+    <a href="index.html" class="btn">Retour à l’accueil</a>
   </div>
 
   <footer>
-    © 2025 XM Trading. Tous droits réservés.
+    &copy; 2025 <strong>XM Trading</strong> — Tous droits réservés.
   </footer>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const nom = params.get("nom");
-    const prenom = params.get("prenom");
+    const nom = params.get("nom") || "";
+    const prenom = params.get("prenom") || "";
 
-    const message = `Félicitations ${prenom} ${nom} ! Vous avez été enregistré.`;
+    const message = `🎉 Félicitations ${prenom} ${nom} ! Vous avez été enregistré avec succès.`;
     document.getElementById("messageFinal").textContent = message;
   </script>
 
