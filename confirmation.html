@@ -2,46 +2,32 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Confirmation</title>
+  <title>Confirmation | XM Trading</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-image: url('fond-felicitation.jpg'); /* Ton image de fond */
+      background-image: url('fond-felicitation.jpg');
       background-size: cover;
       background-position: center;
-      font-family: Arial, sans-serif;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-      text-shadow: 1px 1px 2px black;
-    }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      color: #FFD700;
-    }
-
-    .content {
-      flex: 1;
-      display: flex;
       justify-content: center;
       align-items: center;
-      padding: 30px;
+      height: 100vh;
+      text-shadow: 2px 2px 4px #000;
     }
 
     .message {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 90%;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 12px;
       text-align: center;
-      animation: fadeZoom 2s ease-out forwards;
+      max-width: 90%;
+      animation: fadeZoom 1.5s ease-out forwards;
       opacity: 0;
       transform: scale(0.9);
     }
@@ -54,31 +40,32 @@
     }
 
     footer {
-      background-color: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
       text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      color: #ccc;
+      padding: 15px;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
 
-  <header>XM Trading</header>
-
-  <div class="content">
-    <div class="message">
-      <h1 id="messageFinal"></h1>
-      <p>Contactez votre administrateur pour effectuer votre dépôt pour le lancement de votre investissement.</p>
-    </div>
+  <div class="message">
+    <h1 id="messageFinal"></h1>
+    <p>Contactez votre administrateur pour effectuer votre dépôt pour le lancement de votre investissement.</p>
   </div>
 
-  <footer>© 2025 XM Trading — Tous droits réservés.</footer>
+  <footer>
+    © 2025 XM Trading. Tous droits réservés.
+  </footer>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const nom = params.get("nom");
     const prenom = params.get("prenom");
+
     const message = `Félicitations ${prenom} ${nom} ! Vous avez été enregistré.`;
     document.getElementById("messageFinal").textContent = message;
   </script>
