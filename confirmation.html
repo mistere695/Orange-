@@ -7,7 +7,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('fond-felicitation.jpeg');
+      background-image: url('fond-felicitation.jpeg'); /* Ton image de fond */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -17,19 +17,29 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       text-shadow: 2px 2px 4px #000;
     }
 
     .message {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 40px;
-      border-radius: 12px;
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 50px 40px;
+      border-radius: 14px;
       text-align: center;
       max-width: 90%;
       animation: fadeZoom 1.5s ease-out forwards;
       opacity: 0;
       transform: scale(0.9);
+    }
+
+    .message h1 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+    }
+
+    .message p {
+      font-size: 1.3em;
+      line-height: 1.6;
     }
 
     @keyframes fadeZoom {
@@ -40,13 +50,13 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 0;
+      margin-top: 40px;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.7);
       text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
+      padding: 20px 10px;
+      font-size: 1em;
+      color: #ddd;
     }
   </style>
 </head>
@@ -54,7 +64,10 @@
 
   <div class="message">
     <h1 id="messageFinal"></h1>
-    <p>Contactez votre administrateur pour effectuer votre dépôt pour le lancement de votre investissement.</p>
+    <p>
+      Contactez votre administrateur pour effectuer votre dépôt<br>
+      pour le lancement de votre investissement.
+    </p>
   </div>
 
   <footer>
