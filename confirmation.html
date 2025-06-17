@@ -5,10 +5,104 @@
   <title>Félicitations - XM Trading</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* ... votre CSS existant ... */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('fond-felicitation.jpg'); /* Remplace avec ton image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00C897;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      animation: fadeZoom 1.5s ease-in-out forwards;
+      opacity: 0;
+      transform: scale(0.95);
+      background-color: rgba(255, 255, 255, 0.85); /* fond blanc translucide */
+      margin: 30px;
+      border-radius: 12px;
+    }
+
+    @keyframes fadeZoom {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .container h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .container p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00C897;
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #009B73;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    footer strong {
+      color: #00C897;
+    }
   </style>
 </head>
 <body>
+
   <header>
     <h1>XM Trading</h1>
   </header>
@@ -25,7 +119,14 @@
     &copy; 2025 <strong>XM Trading</strong> — Tous droits réservés.
   </footer>
 
-  <!-- Si vous avez choisi la soumission native, pas de nom/prénom à afficher car non passés en query string -->
-  <!-- Vous pouvez garder un message générique ou utiliser un système plus avancé via Netlify Functions/email -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const nom = params.get("nom") || "";
+    const prenom = params.get("prenom") || "";
+
+    const message = `🎉 Félicitations ${prenom} ${nom} ! Vous avez été enregistré avec succès.`;
+    document.getElementById("messageFinal").textContent = message;
+  </script>
+
 </body>
 </html>
