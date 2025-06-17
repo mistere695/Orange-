@@ -13,11 +13,10 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('fond-felicitation.jpeg'); /* remplace par ton image */
+      background-image: url('fond-felicitation.jpg'); /* Remplace avec ton image */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      color: white;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -49,6 +48,9 @@
       animation: fadeZoom 1.5s ease-in-out forwards;
       opacity: 0;
       transform: scale(0.95);
+      background-color: rgba(255, 255, 255, 0.85); /* fond blanc translucide */
+      margin: 30px;
+      border-radius: 12px;
     }
 
     @keyframes fadeZoom {
@@ -61,14 +63,14 @@
     .container h2 {
       font-size: 28px;
       margin-bottom: 20px;
-      color: #ffffff;
-      text-shadow: 1px 1px 4px #000;
+      color: #111;
     }
 
     .container p {
       font-size: 18px;
       margin-bottom: 30px;
       line-height: 1.6;
+      color: #222;
     }
 
     .btn {
