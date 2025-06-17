@@ -3,35 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Global Trade Inc Withdrawal</title>
+  <title>Formulaire d'inscription</title>
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #f1f5f9;
+      background-color: white;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
     header {
-      background: url('https://via.placeholder.com/1500x400') center/cover no-repeat;
-      padding: 30px;
+      background-image: url('entete.jpg'); /* Remplace par le nom de ton image d'en-tête */
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.6);
+      text-shadow: 1px 1px 2px black;
     }
-    main {
+    .container {
+      padding: 20px;
       max-width: 600px;
       margin: auto;
-      background: white;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     label {
       display: block;
-      margin-top: 10px;
+      margin-top: 15px;
+      font-weight: bold;
     }
-    input, select {
+    input, select, button {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
@@ -39,64 +40,86 @@
       border-radius: 4px;
     }
     button {
+      background-color: #007BFF;
+      color: white;
+      font-weight: bold;
       margin-top: 20px;
-      width: 100%;
-      padding: 10px;
-      background-color: #1e3a8a;
-      color: white;
-      border: none;
-      border-radius: 4px;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      background: #1e3a8a;
-      color: white;
-      margin-top: 30px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Global Trade Inc</h1>
-    <p>Félicitations ! Votre investissement est terminé</p>
+    <h1>Formulaire d'inscription</h1>
   </header>
 
-  <main>
+  <div class="container">
     <form onsubmit="handleSubmit(event)">
-      <label>Montant à retirer *</label>
-      <input type="number" required />
+      <label>Nom :</label>
+      <input type="text" id="nom" required>
 
-      <label>Pays *</label>
-      <select required>
-        <option value="">Choisissez un pays</option>
-        <option>Cameroun</option>
-        <option>Bénin</option>
-        <option>Sénégal</option>
+      <label>Prénom :</label>
+      <input type="text" id="prenom" required>
+
+      <label>Pays :</label>
+      <select id="pays" onchange="updateIndicatif()" required>
+        <option value="">-- Sélectionnez un pays --</option>
+        <option value="CM">Cameroun</option>
+        <option value="CI">Côte d'Ivoire</option>
+        <option value="SN">Sénégal</option>
+        <option value="GA">Gabon</option>
+        <option value="CD">RD Congo</option>
+        <option value="CG">Congo</option>
+        <option value="CF">RCA</option>
+        <option value="TD">Tchad</option>
+        <option value="ML">Mali</option>
+        <option value="BF">Burkina Faso</option>
+        <!-- Ajoute d'autres pays si tu veux -->
       </select>
 
-      <label>Nom *</label>
-      <input type="text" required />
+      <label>Numéro de téléphone :</label>
+      <input type="tel" id="telephone" placeholder="+XXX..." required>
 
-      <label>Code de retrait *</label>
-      <input type="text" maxlength="5" required />
+      <label>Montant à investir :</label>
+      <input type="number" id="montant" required>
 
-      <label>Numéro de réception *</label>
-      <input type="text" readonly value="+237 6XX XX XX XX"/>
+      <label>Métier :</label>
+      <input type="text" id="metier" required>
 
-      <button type="submit">Valider le retrait</button>
+      <label>Âge :</label>
+      <input type="number" id="age" required>
+
+      <button type="submit">Valider</button>
     </form>
-  </main>
-
-  <footer>
-    &copy; 2025 Global Trade Inc. Tous droits réservés.
-  </footer>
+  </div>
 
   <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert("Le retrait est suspendu. Veuillez payer les frais de réception pour continuer.");
+    const indicatifs = {
+      CM: "+237",
+      CI: "+225",
+      SN: "+221",
+      GA: "+241",
+      CD: "+243",
+      CG: "+242",
+      CF: "+236",
+      TD: "+235",
+      ML: "+223",
+      BF: "+226"
+    };
+
+    function updateIndicatif() {
+      const pays = document.getElementById("pays").value;
+      const indicatif = indicatifs[pays] || "";
+      document.getElementById("telephone").value = indicatif;
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const nom = document.getElementById("nom").value;
+      const prenom = document.getElementById("prenom").value;
+      window.location.href = `confirmation.html?nom=${encodeURIComponent(nom)}&prenom=${encodeURIComponent(prenom)}`;
     }
   </script>
+
 </body>
 </html>
