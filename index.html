@@ -3,90 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formulaire d'inscription</title>
+  <title>Formulaire d'inscription | XM Trading</title>
   <style>
+    :root {
+      --primary: #007BFF;
+      --secondary: #f0f4f8;
+      --accent: #0056b3;
+      --white: #ffffff;
+      --gray: #6c757d;
+    }
+
     body {
-      background-color: white;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--secondary);
     }
 
     header {
-      background-image: url('entete.jpg'); /* Ton image d’en-tête */
+      background-image: url('entete.jpg');
       background-size: cover;
       background-position: center;
-      height: 200px;
+      height: 180px;
+      color: var(--white);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      text-shadow: 2px 2px 4px black;
-      font-size: 28px;
-      font-weight: bold;
+      text-shadow: 2px 2px 5px #000;
     }
 
-    footer {
-      background-color: #001f3f;
-      text-align: center;
-      padding: 15px;
-      color: #ccc;
-      font-size: 14px;
-      margin-top: auto;
+    header h1 {
+      font-size: 2.5em;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 10px 20px;
+      border-radius: 8px;
     }
 
-    .container {
+    .form-wrapper {
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: var(--white);
       padding: 30px;
-      max-width: 600px;
-      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-wrapper h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary);
     }
 
     label {
-      display: block;
+      font-weight: 600;
       margin-top: 15px;
-      font-weight: bold;
+      display: block;
+      color: #333;
     }
 
-    input, select, button {
+    input, select {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-top: 5px;
       border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 16px;
+      border-radius: 6px;
+      box-sizing: border-box;
     }
 
     button {
-      background-color: #007BFF;
-      color: white;
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
+      background-color: var(--primary);
+      color: var(--white);
       font-weight: bold;
-      margin-top: 20px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background 0.3s;
     }
 
     button:hover {
-      background-color: #0056b3;
+      background-color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      background-color: var(--primary);
+      color: white;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <header>XM Trading</header>
+  <header>
+    <h1>XM Trading</h1>
+  </header>
 
-  <div class="container">
-    <h2 style="text-align: center; color: #007BFF;">Formulaire d'inscription</h2>
+  <div class="form-wrapper">
+    <h2>Formulaire d'inscription</h2>
     <form onsubmit="handleSubmit(event)">
-      <label>Nom :</label>
+      <label for="nom">Nom :</label>
       <input type="text" id="nom" required>
 
-      <label>Prénom :</label>
+      <label for="prenom">Prénom :</label>
       <input type="text" id="prenom" required>
 
-      <label>Pays :</label>
+      <label for="pays">Pays :</label>
       <select id="pays" onchange="updateIndicatif()" required>
         <option value="">-- Sélectionnez un pays --</option>
         <option value="CM">Cameroun</option>
@@ -101,23 +125,25 @@
         <option value="BF">Burkina Faso</option>
       </select>
 
-      <label>Numéro de téléphone :</label>
+      <label for="telephone">Numéro de téléphone :</label>
       <input type="tel" id="telephone" placeholder="+XXX..." required>
 
-      <label>Montant à investir :</label>
+      <label for="montant">Montant à investir :</label>
       <input type="number" id="montant" required>
 
-      <label>Métier :</label>
+      <label for="metier">Métier :</label>
       <input type="text" id="metier" required>
 
-      <label>Âge :</label>
+      <label for="age">Âge :</label>
       <input type="number" id="age" required>
 
       <button type="submit">Valider</button>
     </form>
   </div>
 
-  <footer>© 2025 XM Trading — Tous droits réservés.</footer>
+  <footer>
+    © 2025 XM Trading. Tous droits réservés.
+  </footer>
 
   <script>
     const indicatifs = {
