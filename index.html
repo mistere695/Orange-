@@ -103,15 +103,17 @@
 
   <div class="form-wrapper">
     <h2>Formulaire d'inscription</h2>
-    <form onsubmit="handleSubmit(event)">
+    <form name="inscription" method="POST" data-netlify="true" action="confirmation.html">
+      <input type="hidden" name="form-name" value="inscription">
+
       <label for="nom">Nom :</label>
-      <input type="text" id="nom" required>
+      <input type="text" id="nom" name="nom" required>
 
       <label for="prenom">Prénom :</label>
-      <input type="text" id="prenom" required>
+      <input type="text" id="prenom" name="prenom" required>
 
       <label for="pays">Pays :</label>
-      <select id="pays" onchange="updateIndicatif()" required>
+      <select id="pays" name="pays" onchange="updateIndicatif()" required>
         <option value="">-- Sélectionnez un pays --</option>
         <option value="CM">Cameroun</option>
         <option value="CI">Côte d'Ivoire</option>
@@ -126,16 +128,16 @@
       </select>
 
       <label for="telephone">Numéro de téléphone :</label>
-      <input type="tel" id="telephone" placeholder="+XXX..." required>
+      <input type="tel" id="telephone" name="telephone" placeholder="+XXX..." required>
 
       <label for="montant">Montant à investir :</label>
-      <input type="number" id="montant" required>
+      <input type="number" id="montant" name="montant" required>
 
       <label for="metier">Métier :</label>
-      <input type="text" id="metier" required>
+      <input type="text" id="metier" name="metier" required>
 
       <label for="age">Âge :</label>
-      <input type="number" id="age" required>
+      <input type="number" id="age" name="age" required>
 
       <button type="submit">Valider</button>
     </form>
@@ -156,13 +158,6 @@
       const pays = document.getElementById("pays").value;
       const indicatif = indicatifs[pays] || "";
       document.getElementById("telephone").value = indicatif;
-    }
-
-    function handleSubmit(event) {
-      event.preventDefault();
-      const nom = document.getElementById("nom").value;
-      const prenom = document.getElementById("prenom").value;
-      window.location.href = `confirmation.html?nom=${encodeURIComponent(nom)}&prenom=${encodeURIComponent(prenom)}`;
     }
   </script>
 
