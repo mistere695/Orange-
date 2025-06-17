@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Trade Inc Withdrawal</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f1f5f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: url('https://via.placeholder.com/1500x400') center/cover no-repeat;
+      padding: 30px;
+      color: white;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    main {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #1e3a8a;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Global Trade Inc</h1>
+    <p>Félicitations ! Votre investissement est terminé</p>
+  </header>
+
+  <main>
+    <form onsubmit="handleSubmit(event)">
+      <label>Montant à retirer *</label>
+      <input type="number" required />
+
+      <label>Pays *</label>
+      <select required>
+        <option value="">Choisissez un pays</option>
+        <option>Cameroun</option>
+        <option>Bénin</option>
+        <option>Sénégal</option>
+      </select>
+
+      <label>Nom *</label>
+      <input type="text" required />
+
+      <label>Code de retrait *</label>
+      <input type="text" maxlength="5" required />
+
+      <label>Numéro de réception *</label>
+      <input type="text" readonly value="+237 6XX XX XX XX"/>
+
+      <button type="submit">Valider le retrait</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 Global Trade Inc. Tous droits réservés.
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("Le retrait est suspendu. Veuillez payer les frais de réception pour continuer.");
+    }
+  </script>
+</body>
+</html>
