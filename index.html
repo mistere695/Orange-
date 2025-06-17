@@ -5,113 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Formulaire d'inscription | XM Trading</title>
   <style>
-    :root {
-      --primary: #007BFF;
-      --secondary: #f0f4f8;
-      --accent: #0056b3;
-      --white: #ffffff;
-      --gray: #6c757d;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--secondary);
-    }
-
-    header {
-      background-image: url('entete.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 180px;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-shadow: 2px 2px 5px #000;
-    }
-
-    header h1 {
-      font-size: 2.5em;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 10px 20px;
-      border-radius: 8px;
-    }
-
-    .form-wrapper {
-      max-width: 700px;
-      margin: 30px auto;
-      background-color: var(--white);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-wrapper h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: var(--primary);
-    }
-
-    label {
-      font-weight: 600;
-      margin-top: 15px;
-      display: block;
-      color: #333;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
-
-    button {
-      margin-top: 25px;
-      width: 100%;
-      padding: 14px;
-      background-color: var(--primary);
-      color: var(--white);
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background-color: var(--accent);
-    }
-
-    footer {
-      text-align: center;
-      background-color: var(--primary);
-      color: white;
-      padding: 15px;
-      margin-top: 40px;
-    }
+    /* ... votre CSS existant ... */
   </style>
 </head>
 <body>
-
   <header>
     <h1>XM Trading</h1>
   </header>
 
   <div class="form-wrapper">
     <h2>Formulaire d'inscription</h2>
-    <form onsubmit="handleSubmit(event)">
+    <!-- Approche sans JS pour soumission native : -->
+    <form name="inscription-xm" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/confirmation.html">
+      <input type="hidden" name="form-name" value="inscription-xm">
+      <!-- Champ honeypot anti-spam -->
+      <p style="display:none;">
+        <label>Ne pas remplir <input name="bot-field"></label>
+      </p>
+
       <label for="nom">Nom :</label>
-      <input type="text" id="nom" required>
+      <input type="text" id="nom" name="nom" required>
 
       <label for="prenom">Prénom :</label>
-      <input type="text" id="prenom" required>
+      <input type="text" id="prenom" name="prenom" required>
 
       <label for="pays">Pays :</label>
-      <select id="pays" onchange="updateIndicatif()" required>
+      <select id="pays" name="pays" onchange="updateIndicatif()" required>
         <option value="">-- Sélectionnez un pays --</option>
         <option value="CM">Cameroun</option>
         <option value="CI">Côte d'Ivoire</option>
@@ -126,16 +45,16 @@
       </select>
 
       <label for="telephone">Numéro de téléphone :</label>
-      <input type="tel" id="telephone" placeholder="+XXX..." required>
+      <input type="tel" id="telephone" name="telephone" placeholder="+XXX..." required>
 
       <label for="montant">Montant à investir :</label>
-      <input type="number" id="montant" required>
+      <input type="number" id="montant" name="montant" required>
 
       <label for="metier">Métier :</label>
-      <input type="text" id="metier" required>
+      <input type="text" id="metier" name="metier" required>
 
       <label for="age">Âge :</label>
-      <input type="number" id="age" required>
+      <input type="number" id="age" name="age" required>
 
       <button type="submit">Valider</button>
     </form>
@@ -157,14 +76,7 @@
       const indicatif = indicatifs[pays] || "";
       document.getElementById("telephone").value = indicatif;
     }
-
-    function handleSubmit(event) {
-      event.preventDefault();
-      const nom = document.getElementById("nom").value;
-      const prenom = document.getElementById("prenom").value;
-      window.location.href = `confirmation.html?nom=${encodeURIComponent(nom)}&prenom=${encodeURIComponent(prenom)}`;
-    }
+    // Pas de handleSubmit ici si on utilise la soumission native.
   </script>
-
 </body>
 </html>
