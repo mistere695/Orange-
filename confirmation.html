@@ -13,7 +13,7 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('fond-felicitation.jpg'); /* Remplace avec ton image */
+      background-image: url('fond-felicitation.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -48,7 +48,7 @@
       animation: fadeZoom 1.5s ease-in-out forwards;
       opacity: 0;
       transform: scale(0.95);
-      background-color: rgba(255, 255, 255, 0.85); /* fond blanc translucide */
+      background-color: rgba(255, 255, 255, 0.9);
       margin: 30px;
       border-radius: 12px;
     }
@@ -108,9 +108,10 @@
   </header>
 
   <div class="container">
-    <h2 id="messageFinal">Félicitations !</h2>
+    <h2>🎉 Félicitations !</h2>
     <p>
-      Contactez votre administrateur pour effectuer votre dépôt pour le lancement de votre investissement.
+      Vous avez été enregistré avec succès.<br>
+      <strong>Contactez votre administrateur</strong> pour effectuer votre dépôt pour le lancement de votre investissement.
     </p>
     <a href="index.html" class="btn">Retour à l’accueil</a>
   </div>
@@ -118,15 +119,6 @@
   <footer>
     &copy; 2025 <strong>XM Trading</strong> — Tous droits réservés.
   </footer>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const nom = params.get("nom") || "";
-    const prenom = params.get("prenom") || "";
-
-    const message = `🎉 Félicitations ${prenom} ${nom} ! Vous avez été enregistré avec succès.`;
-    document.getElementById("messageFinal").textContent = message;
-  </script>
 
 </body>
 </html>
