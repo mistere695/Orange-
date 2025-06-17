@@ -7,24 +7,40 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #007BFF; /* Fond bleu */
-      color: white;
+      background-image: url('fond-felicitation.jpg'); /* Ton image de fond */
+      background-size: cover;
+      background-position: center;
       font-family: Arial, sans-serif;
+      color: white;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      flex-direction: column;
+      min-height: 100vh;
       text-shadow: 1px 1px 2px black;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
     }
 
     .message {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 30px;
       border-radius: 10px;
-      max-width: 80%;
+      max-width: 90%;
+      text-align: center;
       animation: fadeZoom 2s ease-out forwards;
       opacity: 0;
       transform: scale(0.9);
@@ -36,20 +52,33 @@
         transform: scale(1);
       }
     }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
 
-  <div class="message">
-    <h1 id="messageFinal"></h1>
-    <p>Contactez votre administrateur pour effectuer votre dépôt pour le lancement de votre investissement.</p>
+  <header>XM Trading</header>
+
+  <div class="content">
+    <div class="message">
+      <h1 id="messageFinal"></h1>
+      <p>Contactez votre administrateur pour effectuer votre dépôt pour le lancement de votre investissement.</p>
+    </div>
   </div>
+
+  <footer>© 2025 XM Trading — Tous droits réservés.</footer>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const nom = params.get("nom");
     const prenom = params.get("prenom");
-
     const message = `Félicitations ${prenom} ${nom} ! Vous avez été enregistré.`;
     document.getElementById("messageFinal").textContent = message;
   </script>
